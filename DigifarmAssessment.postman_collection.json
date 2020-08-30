@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "f82fad61-0f95-4a8e-a8dc-46ad27f825e7",
+		"name": "DigifarmAssessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Buyer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"farmerName\": \"James Juma\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/digi/api/buyers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"digi",
+						"api",
+						"buyers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Buyers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/digi/api/buyers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"digi",
+						"api",
+						"buyers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Buyer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/digi/api/buyers/5f4b2c91e85b2d1bb3d5e982",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"digi",
+						"api",
+						"buyers",
+						"5f4b2c91e85b2d1bb3d5e982"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Buyer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"farmerName\": \"James Juma\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/digi/api/buyers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"digi",
+						"api",
+						"buyers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -2,6 +2,9 @@ package com.digifarm.digi.controllers;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -67,8 +70,9 @@ public class DigiController {
 	public ResponseEntity<?> addBuyer(@RequestBody Buyer buyer) {
 		Buyer newBuyer = new Buyer();
 
-		buyer.setId(sequenceGenerator.generateSequence(Buyer.SEQUENCE_NAME));
-		
+		//buyer.set_id(sequenceGenerator.generateSequence(Buyer.SEQUENCE_NAME));
+		buyer.set_id(ObjectId.get());
+
 		newBuyer = buyerRepository.save(buyer);
 
 		return ResponseEntity.ok(newBuyer);
@@ -84,9 +88,17 @@ public class DigiController {
 		return ResponseEntity.ok(newBuyer);
 	}
 
+	// Get one buyer
+	@RequestMapping(value = "buyers/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getBuyer(@PathParam("id") ObjectId buyerId) {
+		System.out.println(buyerId);
+		Buyer buyer = buyerRepository.findBy_id(buyerId);
+		return ResponseEntity.ok(buyer);
+	}
+
 	// Get all buyers
 	@RequestMapping(value = "buyers", method = RequestMethod.GET)
-	public ResponseEntity<?> getBuyer() {
+	public ResponseEntity<?> getAllBuyers() {
 		List<Buyer> buyers = buyerRepository.findAll();
 		return ResponseEntity.ok(buyers);
 	}

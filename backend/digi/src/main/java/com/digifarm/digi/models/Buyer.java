@@ -1,5 +1,6 @@
 package com.digifarm.digi.models;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +11,7 @@ public class Buyer {
     public static final String SEQUENCE_NAME = "buyers_sequence";
 	
 	@Id
-	private Long id;
+	private ObjectId _id;
 	private String farmerName;
 	private Long userId;
 	
@@ -18,18 +19,19 @@ public class Buyer {
 
 	}
 
-	public Buyer(Long id, String farmerName, Long userId) {
-		this.id = id;
+	public Buyer(ObjectId _id, String farmerName, Long userId) {
+		this._id = _id;
 		this.farmerName = farmerName;
 		this.userId = userId;
 	}
 
-	public Long getId() {
-		return id;
+	// ObjectId needs to be converted to string
+	public String get_id() {
+		return _id.toHexString();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
 
 	public String getFarmerName() {
