@@ -13,7 +13,9 @@ import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
-axios.defaults.baseURL = "http://localhost:8083/digi/api/";
+axios.defaults.baseURL = "https://www.catholicmusic.or.ke:8099/kcm/api/";
+
+//axios.defaults.baseURL = "http://localhost:8083/digi/api/";
 
 store.dispatch("auth/attempt", localStorage.getItem("token")).then(() => {
   new Vue({
